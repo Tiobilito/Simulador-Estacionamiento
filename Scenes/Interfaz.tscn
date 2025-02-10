@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy63ndqxwh56n"]
+
+[ext_resource type="Script" path="res://Scenes/Interfaz.gd" id="1_f0g8p"]
+
+[sub_resource type="Theme" id="Theme_h3by6"]
+default_font_size = 30
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_f0g8p")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SpinBox" type="SpinBox" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+step = 0.5
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Frecuencia de aparicion carros"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SpinBox" type="SpinBox" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+step = 0.5
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Frecuencia de salida de carros"
+
+[node name="Button" type="Button" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Reiniciar toda la escena"
+
+[node name="Button2" type="Button" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Cerrar"
+
+[node name="Label" type="Label" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_h3by6")
+
+[connection signal="pressed" from="Control/MarginContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/Button2" to="." method="_on_button_2_pressed"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://j2c3hdes08py"]
+
+[ext_resource type="Texture2D" uid="uid://c4mebt28e4dnl" path="res://Sprites/Carro.png" id="1_diay0"]
+[ext_resource type="Script" path="res://Scenes/Carro.gd" id="1_gtfxd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kfj4c"]
+size = Vector2(3, 3)
+
+[node name="Auto" type="RigidBody2D" groups=["Carro"]]
+gravity_scale = 0.0
+script = ExtResource("1_gtfxd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_diay0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_kfj4c")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
